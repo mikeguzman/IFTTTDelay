@@ -1,0 +1,14 @@
+services:
+  iftttdelay:
+    build: .
+    image: iftttdelay:latest
+    container_name: iftttdelay
+    restart: unless-stopped
+    init: true
+    ports:
+      - "127.0.0.1:3002:3002"
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
